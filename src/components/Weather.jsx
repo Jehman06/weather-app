@@ -26,6 +26,7 @@ export default function Weather() {
 
     const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${APIKEY}`;
 
+    // Fetch data
     async function weatherData(e) {
         e.preventDefault();
 
@@ -42,6 +43,7 @@ export default function Weather() {
         }
     }
 
+    // Unit button state toggle
     const handleUnitChange = () => {
         if (unit === "Imperial") {
             setUnit("Metric")
@@ -51,6 +53,7 @@ export default function Weather() {
         console.log(unit)
     }
 
+    // Search bar
     const handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
@@ -111,6 +114,7 @@ export default function Weather() {
                 </MDBRow>
             </MDBContainer>
 
+            {/* Display either Metric or Imperial values based on unit button using ternary operator, or nothing if search = undefined */}
             {
                 weather.data !== undefined && unit === "Metric" ?
 
