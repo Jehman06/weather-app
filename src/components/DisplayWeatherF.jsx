@@ -56,7 +56,7 @@ export default function DisplayWeatherF(props) {
                                     Visibility: <strong>{Math.round(data.visibility / 1609)} miles</strong>
                                 </p>
                                 <p>
-                                    Pressure: <strong>{data.main.pressure} hPa</strong>
+                                    Pressure: <strong>{Math.round((data.main.pressure * 0.029529980164712) * 10) / 10} inHg</strong>
                                 </p>
                                 <p>
                                     Sunrise: <strong>{localSunrise}</strong>
