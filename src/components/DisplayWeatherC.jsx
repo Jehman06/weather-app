@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     MDBCard,
     MDBCardBody,
@@ -9,7 +10,7 @@ import {
     MDBTypography,
 } from "mdb-react-ui-kit";
 
-export default function DisplayWeather(props) {
+export default function DisplayWeatherC(props) {
     const { data } = props;
 
     const iconurl = "http://openweathermap.org/img/wn/" + `${data.weather[0].icon}` + ".png";
@@ -37,22 +38,22 @@ export default function DisplayWeather(props) {
                                 <span>{data.weather[0].description}</span>
                                 <img src={iconurl} />
                                 <p className="mb-2">
-                                    Current temperature: <strong>{Math.round(data.main.temp)} °F</strong>
+                                    Current temperature: <strong>{Math.round(data.main.temp - 273.15)} °C</strong>
                                 </p>
                                 <p>
-                                    Feels like: <strong>{Math.round(data.main.feels_like)} °F</strong>
+                                    Feels like: <strong>{Math.round(data.main.feels_like - 273.15)} °C</strong>
                                 </p>
                                 <p>
-                                    Max: <strong>{Math.round(data.main.temp_max)} °F</strong>, Min: <strong>{Math.round(data.main.temp_min)} °F</strong>
+                                    Max: <strong>{Math.round(data.main.temp_max - 273.15)} °C</strong>, Min: <strong>{Math.round(data.main.temp_min - 273.15)} °C</strong>
                                 </p>
                                 <p>
                                     Humidity: <strong>{data.main.humidity}%</strong>
                                 </p>
                                 <p>
-                                    Wind: <strong>{data.wind.speed} mph</strong>
+                                    Wind: <strong>{Math.round(data.wind.speed * 3.6)} km/h</strong>
                                 </p>
                                 <p>
-                                    Visibility: <strong>{Math.round(data.visibility / 1609)} miles</strong>
+                                    Visibility: <strong>{Math.round(data.visibility / 1000)} km</strong>
                                 </p>
                                 <p>
                                     Pressure: <strong>{data.main.pressure} hPa</strong>

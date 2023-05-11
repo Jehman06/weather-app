@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import DisplayWeather from "./DisplayWeather";
+import DisplayWeatherF from "./DisplayWeatherF";
+import DisplayWeatherC from "./DisplayWeatherC";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -19,9 +20,11 @@ export default function Weather() {
         country: ''
     });
 
+    const [unit, setUnit] = useState('Metric');
+
     const APIKEY = "2744ec99d729cd9e1e2ff90b304d4fdc";
 
-    const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&units=imperial&appid=${APIKEY}`;
+    const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${APIKEY}`;
 
     async function weatherData(e) {
         e.preventDefault();
@@ -37,6 +40,15 @@ export default function Weather() {
 
             setWeather({ data: data });
         }
+    }
+
+    const handleUnitChange = () => {
+        if (unit === "Imperial") {
+            setUnit("Metric")
+        } else {
+            setUnit("Imperial")
+        }
+        console.log(unit)
     }
 
     const handleChange = (e) => {
@@ -79,10 +91,19 @@ export default function Weather() {
 
                             <Button
                                 variant='primary'
-                                className="btn-primary"
+                                className="btn-primary mb-3 mr-1"
+                                style={{ borderRadius: "10px", marginTop: "8px" }}
                                 onClick={(e) => weatherData(e)}
                             >
                                 Check!
+                            </Button>
+
+                            <Button
+                                className="mb-3 mr-1"
+                                style={{ marginTop: "8px", marginLeft: "8px", borderRadius: "10px" }}
+                                onClick={() => handleUnitChange()}
+                            >
+                                {unit === "Imperial" ? "Metric" : "Imperial"}
                             </Button>
 
                         </MDBInputGroup>
@@ -91,13 +112,19 @@ export default function Weather() {
             </MDBContainer>
 
             {
-                weather.data !== undefined ?
+                weather.data !== undefined && unit === "Metric" ?
 
                     <div>
-                        <DisplayWeather data={weather.data} />
+                        <DisplayWeatherF data={weather.data} />
                     </div>
 
-                    : null
+                    : weather.data !== undefined && unit === "Imperial" ?
+
+                        <div>
+                            <DisplayWeatherC data={weather.data} />
+                        </div>
+
+                        : null
             }
 
         </section>
