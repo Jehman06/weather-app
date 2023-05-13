@@ -83,7 +83,7 @@ export default function Weather() {
                                 name='city'
                                 placeholder='City'
                                 className="me-1"
-                                style={{ height: "auto", borderRadius: "10px" }}
+                                style={{ height: "auto", borderRadius: "10px", float: "left" }}
                                 onChange={(e) => handleChange(e)}
                             />
                             <input
@@ -91,14 +91,14 @@ export default function Weather() {
                                 name='country'
                                 placeholder='Country'
                                 className="me-1"
-                                style={{ height: "auto", borderRadius: "10px" }}
+                                style={{ height: "auto", borderRadius: "10px", float: "left" }}
                                 onChange={(e) => handleChange(e)}
                             />
 
                             <Button
                                 variant='primary'
                                 className="btn-primary mb-3 mr-1"
-                                style={{ borderRadius: "10px", marginTop: "8px", display: "inline-block", }}
+                                style={{ borderRadius: "10px", float: "left" }}
                                 onClick={(e) => weatherData(e)}
                             >
                                 Check!
@@ -111,7 +111,7 @@ export default function Weather() {
                                 inline
                                 name="flexRadioDefault"
                                 id="flexRadioDefault1"
-                                label="Fahrenheit"
+                                label="Imperial"
                                 onChange={(e) => handleUnitChange(e)}
                                 defaultChecked
                             />
@@ -119,7 +119,7 @@ export default function Weather() {
                                 inline
                                 name="flexRadioDefault"
                                 id="flexRadioDefault2"
-                                label="Celcius"
+                                label="Metric"
                                 onChange={(e) => handleUnitChange(e)}
                             />
                         </div>
