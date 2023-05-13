@@ -9,6 +9,7 @@ import {
     MDBInputGroup,
     MDBRow,
     MDBTypography,
+    MDBRadio
 } from "mdb-react-ui-kit";
 
 export default function Weather() {
@@ -43,7 +44,7 @@ export default function Weather() {
         }
     }
 
-    // Unit button state toggle
+    // Unit radios state toggle
     const handleUnitChange = () => {
         if (unit === "Imperial") {
             setUnit("Metric")
@@ -76,12 +77,13 @@ export default function Weather() {
                             Check the weather!
                         </MDBTypography>
 
-                        <MDBInputGroup className="mb-3 mr-1">
+                        <MDBInputGroup className="mb-3 mr-1" style={{ display: "inline-block" }}>
                             <input
                                 type='text'
                                 name='city'
                                 placeholder='City'
                                 className="me-1"
+                                style={{ height: "auto", borderRadius: "10px" }}
                                 onChange={(e) => handleChange(e)}
                             />
                             <input
@@ -89,32 +91,44 @@ export default function Weather() {
                                 name='country'
                                 placeholder='Country'
                                 className="me-1"
+                                style={{ height: "auto", borderRadius: "10px" }}
                                 onChange={(e) => handleChange(e)}
                             />
 
                             <Button
                                 variant='primary'
                                 className="btn-primary mb-3 mr-1"
-                                style={{ borderRadius: "10px", marginTop: "8px" }}
+                                style={{ borderRadius: "10px", marginTop: "8px", display: "inline-block", }}
                                 onClick={(e) => weatherData(e)}
                             >
                                 Check!
                             </Button>
 
-                            <Button
-                                className="mb-3 mr-1"
-                                style={{ marginTop: "8px", marginLeft: "8px", borderRadius: "10px" }}
-                                onClick={() => handleUnitChange()}
-                            >
-                                {unit === "Imperial" ? "Metric" : "Imperial"}
-                            </Button>
-
                         </MDBInputGroup>
+
+                        <div className="mb-4 p-2">
+                            <MDBRadio
+                                inline
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                                label="Fahrenheit"
+                                onChange={(e) => handleUnitChange(e)}
+                                defaultChecked
+                            />
+                            <MDBRadio
+                                inline
+                                name="flexRadioDefault"
+                                id="flexRadioDefault2"
+                                label="Celcius"
+                                onChange={(e) => handleUnitChange(e)}
+                            />
+                        </div>
+
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
 
-            {/* Display either Metric or Imperial values based on unit button using ternary operator, or nothing if search = undefined */}
+            {/* Display either Metric or Imperial values based on unit radios using ternary operator, or nothing if search = undefined */}
             {
                 weather.data !== undefined && unit === "Metric" ?
 

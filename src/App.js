@@ -1,4 +1,3 @@
-import ToggleBtn from "./components/ToggleBtn";
 import Weather from "./components/Weather";
 
 function App() {
