@@ -98,7 +98,7 @@ export default function Weather() {
                             <Button
                                 variant='primary'
                                 className="btn-primary mb-3 mr-1"
-                                style={{ borderRadius: "10px", float: "left" }}
+                                style={{ borderRadius: "10px", float: "left", }}
                                 onClick={(e) => weatherData(e)}
                             >
                                 Check!

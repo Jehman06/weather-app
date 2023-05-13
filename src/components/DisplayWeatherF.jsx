@@ -29,7 +29,7 @@ export default function DisplayWeatherF(props) {
                 data.cod != 404 ?
 
                     <React.Fragment>
-                        <MDBContainer className="py-5">
+                        <MDBContainer>
                             <MDBRow className="justify-content-center align-items-center h-100">
                                 <MDBCol md="8" lg="6" xl="4">
                                     <MDBCard className="shadow-0 border">
