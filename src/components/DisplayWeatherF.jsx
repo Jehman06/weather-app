@@ -15,6 +15,7 @@ export default function DisplayWeatherF(props) {
 
     const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod != 404 ? data.weather[0].icon : null}` + ".png";
 
+    // If user enters a city that doesn't exist, this data will be null and not cause an error
     let timezone = data.cod != 404 ? data.timezone : null
     let sunrise = data.cod != 404 ? data.sys.sunrise : null
     let sunset = data.cod != 404 ? data.sys.sunset : null
