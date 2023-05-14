@@ -81,7 +81,7 @@ export default function Footer() {
                             </p>
                             <p>
                                 <MDBIcon icon="phone" className="me-3" />
-                                619-928-1372
+                                <a href="tel: 6199281372" className="text-reset">619-928-1372</a>
                             </p>
                         </MDBCol>
                     </MDBRow>
