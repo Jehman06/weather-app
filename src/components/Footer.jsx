@@ -77,7 +77,7 @@ export default function Footer() {
                             </p>
                             <p>
                                 <MDBIcon icon="envelope" className="me-3" />
-                                jeremy.lehmann06@icloud.com
+                                <a href="mailto: jeremy.lehmann06@icloud.com" className="text-reset">jeremy.lehmann06@icloud.com</a>
                             </p>
                             <p>
                                 <MDBIcon icon="phone" className="me-3" />
