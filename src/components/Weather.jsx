@@ -70,7 +70,7 @@ export default function Weather() {
 
     return (
         <section className="vh-100">
-            <MDBContainer className="py-5">
+            <MDBContainer>
                 <MDBRow className="justify-content-center align-items-center h-100">
                     <MDBCol md="8" lg="6" xl="4">
                         <MDBTypography tag="h3" className="mb-4 pb-2 fw-normal">
