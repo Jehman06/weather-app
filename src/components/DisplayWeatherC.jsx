@@ -13,19 +13,22 @@ import {
 export default function DisplayWeatherC(props) {
     const { data } = props;
 
-    const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod != 404 ? data.weather[0].icon : null}` + ".png";
+    const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod !== 404 ? data.weather[0].icon : null}` + ".png";
 
-    let timezone = data.cod != 404 ? data.timezone : null
-    let sunrise = data.cod != 404 ? data.sys.sunrise : null
-    let sunset = data.cod != 404 ? data.sys.sunset : null
+    let timezone = data.cod !== 404 ? data.timezone : null
+    let sunrise = data.cod !== 404 ? data.sys.sunrise : null
+    let sunset = data.cod !== 404 ? data.sys.sunset : null
 
     let localSunrise = moment.utc(sunrise, 'X').add(timezone, 'seconds').format('LT');
     let localSunset = moment.utc(sunset, 'X').add(timezone, 'seconds').format('LT');
 
+    let timezoneInMinutes = timezone / 60;
+    let localTime = moment().utcOffset(timezoneInMinutes).format("LT");
+
     return (
         <section className="vh-100">
             {
-                data.cod != 404 ?
+                data.cod !== 404 ?
 
                     <React.Fragment>
                         <MDBContainer>
@@ -39,9 +42,12 @@ export default function DisplayWeatherC(props) {
                                             >
                                                 {data.name}, {data.sys.country}
                                             </MDBTypography>
+                                            <p>{localTime}</p>
                                             <span>{data.weather[0].description}</span>
-                                            <img src={iconurl} />
-                                            <p className="mb-2">
+                                            <img src={iconurl}
+                                                alt={data.weather[0].description}
+                                            />
+                                            <p>
                                                 Current temperature: <strong>{Math.round(data.main.temp - 273.15)} °C</strong>
                                             </p>
                                             <p>

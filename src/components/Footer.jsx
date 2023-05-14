@@ -17,14 +17,14 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <a href="mailto: jeremy.lehmann06@icloud.com" className="me-4 text-center text-reset" target="_blank">
+                    <a href="mailto: jeremy.lehmann06@icloud.com" className="me-4 text-center text-reset" target="_blank" rel="noopener noreferrer">
                         <MDBIcon fas icon="at" />
                     </a>
 
-                    <a href="https://linkedin.com/in/jeremy-lehmann" className="me-4 text-center text-reset" target="_blank">
+                    <a href="https://linkedin.com/in/jeremy-lehmann" className="me-4 text-center text-reset" target="_blank" rel="noopener noreferrer">
                         <MDBIcon fab icon="linkedin" />
                     </a>
-                    <a href="https://github.com/Jehman06" className="me-4 text-center text-reset" target="_blank">
+                    <a href="https://github.com/Jehman06" className="me-4 text-center text-reset" target="_blank" rel="noopener noreferrer">
                         <MDBIcon fab icon="github" />
                     </a>
 
@@ -48,22 +48,22 @@ export default function Footer() {
                         <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">Technologies Used</h6>
                             <p>
-                                <a href="https://react.dev/" className="text-reset" target="_blank">
+                                <a href="https://react.dev/" className="text-reset" target="_blank" rel="noopener noreferrer">
                                     React
                                 </a>
                             </p>
                             <p>
-                                <a href="https://getbootstrap.com/" className="text-reset" target="_blank">
+                                <a href="https://getbootstrap.com/" className="text-reset" target="_blank" rel="noopener noreferrer">
                                     Bootstrap
                                 </a>
                             </p>
                             <p>
-                                <a href="https://mdbootstrap.com/" className="text-reset" target="_blank">
+                                <a href="https://mdbootstrap.com/" className="text-reset" target="_blank" rel="noopener noreferrer">
                                     MDB
                                 </a>
                             </p>
                             <p>
-                                <a href="https://openweathermap.org/api" className="text-reset" target="_blank">
+                                <a href="https://openweathermap.org/api" className="text-reset" target="_blank" rel="noopener noreferrer">
                                     OpenWeather API
                                 </a>
                             </p>

@@ -31,7 +31,7 @@ export default function Weather() {
     async function weatherData(e) {
         e.preventDefault();
 
-        if (form.city == "") {
+        if (form.city === "") {
             alert("Search for a city")
         } else {
             const data = await fetch(endpoint)
