@@ -13,11 +13,11 @@ import {
 export default function DisplayWeatherC(props) {
     const { data } = props;
 
-    const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod !== 404 ? data.weather[0].icon : null}` + ".png";
+    const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod != 404 ? data.weather[0].icon : null}` + ".png";
 
-    let timezone = data.cod !== 404 ? data.timezone : null
-    let sunrise = data.cod !== 404 ? data.sys.sunrise : null
-    let sunset = data.cod !== 404 ? data.sys.sunset : null
+    let timezone = data.cod != 404 ? data.timezone : null
+    let sunrise = data.cod != 404 ? data.sys.sunrise : null
+    let sunset = data.cod != 404 ? data.sys.sunset : null
 
     let localSunrise = moment.utc(sunrise, 'X').add(timezone, 'seconds').format('LT');
     let localSunset = moment.utc(sunset, 'X').add(timezone, 'seconds').format('LT');
@@ -28,7 +28,7 @@ export default function DisplayWeatherC(props) {
     return (
         <section className="vh-100">
             {
-                data.cod !== 404 ?
+                data.cod != 404 ?
 
                     <React.Fragment>
                         <MDBContainer>
