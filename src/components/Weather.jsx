@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     MDBCol,
     MDBContainer,
-    MDBInputGroup,
     MDBRow,
     MDBTypography,
     MDBRadio
@@ -69,7 +68,7 @@ export default function Weather() {
     };
 
     return (
-        <section className="vh-100">
+        <section className="vh-100" style={{ marginTop: "50px" }}>
             <MDBContainer>
                 <MDBRow className="justify-content-center align-items-center h-100">
                     <MDBCol md="8" lg="6" xl="4">
@@ -77,34 +76,33 @@ export default function Weather() {
                             Check the weather!
                         </MDBTypography>
 
-                        <MDBInputGroup className="mb-3 mr-1" style={{ display: "inline-block" }}>
+                        <div className="d-flex mb-3">
                             <input
-                                type='text'
-                                name='city'
-                                placeholder='City'
+                                type="text"
+                                name="city"
+                                placeholder="City"
                                 className="me-1"
-                                style={{ height: "auto", borderRadius: "10px", float: "left" }}
+                                style={{ height: "auto", borderRadius: "10px" }}
                                 onChange={(e) => handleChange(e)}
                             />
                             <input
-                                type='text'
-                                name='country'
-                                placeholder='Country'
+                                type="text"
+                                name="country"
+                                placeholder="Country"
                                 className="me-1"
-                                style={{ height: "auto", borderRadius: "10px", float: "left" }}
+                                style={{ height: "auto", borderRadius: "10px" }}
                                 onChange={(e) => handleChange(e)}
                             />
 
                             <Button
-                                variant='primary'
-                                className="btn-primary mb-3 mr-1"
-                                style={{ borderRadius: "10px", float: "left", }}
+                                variant="primary"
+                                className="btn-primary"
+                                style={{ borderRadius: "10px" }}
                                 onClick={(e) => weatherData(e)}
                             >
                                 Check!
                             </Button>
-
-                        </MDBInputGroup>
+                        </div>
 
                         <div className="mb-4 p-2">
                             <MDBRadio
@@ -123,28 +121,20 @@ export default function Weather() {
                                 onChange={(e) => handleUnitChange(e)}
                             />
                         </div>
-
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
 
             {/* Display either Metric or Imperial values based on unit radios using ternary operator, or nothing if search = undefined */}
-            {
-                weather.data !== undefined && unit === "Metric" ?
-
-                    <div>
-                        <DisplayWeatherF data={weather.data} />
-                    </div>
-
-                    : weather.data !== undefined && unit === "Imperial" ?
-
-                        <div>
-                            <DisplayWeatherC data={weather.data} />
-                        </div>
-
-                        : null
-            }
-
+            {weather.data !== undefined && unit === "Metric" ? (
+                <div>
+                    <DisplayWeatherF data={weather.data} />
+                </div>
+            ) : weather.data !== undefined && unit === "Imperial" ? (
+                <div>
+                    <DisplayWeatherC data={weather.data} />
+                </div>
+            ) : null}
         </section>
     )
 }
