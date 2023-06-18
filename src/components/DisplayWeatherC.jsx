@@ -36,7 +36,7 @@ export default function DisplayWeatherC(props) {
                             <MDBRow className="justify-content-center align-items-center h-100">
                                 <MDBCol md="8" lg="6" xl="8">
                                     <MDBCard className="shadow-0 border">
-                                        <MDBCardBody className="p-4" style={{ margin: '100px' }}>
+                                        <MDBCardBody className="p-4" style={{ margin: '30px' }}>
                                             <MDBTypography tag="h4" className="mb-1 sfw-normal">
                                                 {data.name}, {data.sys.country}
                                             </MDBTypography>
